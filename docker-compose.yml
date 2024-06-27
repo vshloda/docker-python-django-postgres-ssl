@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: ./docker/python.Dockerfile
-    command: gunicorn project.wsgi:application --bind 0.0.0.0:8000    
+    command: gunicorn project.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./src:/app:delegated
     expose:
@@ -12,11 +12,6 @@ services:
     env_file:
       - .env
     restart: always
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "3"   # number of files or file count
-        max-size: "10m" # file size
 
 
   nginx:
@@ -35,11 +30,6 @@ services:
     restart: always
     depends_on:
       - web
-    logging:
-      driver: "json-file"
-      options:
-        max-file: "5"   # number of files or file count
-        max-size: "10m" # file size
 
   certbot:
     image: certbot/certbot    
