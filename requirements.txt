@@ -2,3 +2,4 @@ Django
 mysql.connector
 mysqlclient
 gunicorn
+psycopg2-binary

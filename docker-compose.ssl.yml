@@ -31,21 +31,20 @@ services:
     depends_on:
       - web
 
-  postgres:
-    image: postgres
+  db:
+    image: postgres:13
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=${DB_DATABASE}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_DATABASE}
+      - POSTGRES_DB=django_db
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=django_password
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8081:8080
+  certbot:
+    image: certbot/certbot    
+    volumes:
+      - ./docker/certbot/www/:/var/www/certbot/:rw
+      - ./docker/certbot/conf/:/etc/letsencrypt/:rw  
 
-      
 volumes:
-  pgdata:
+  postgres_data:
