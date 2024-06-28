@@ -23,7 +23,8 @@
 
     ```
     DOCKER_HTTP_PORT=80
-    NGINX_CONF_PATH=./docker/nginx/conf.d  # Path to the nginx configuration file,
+    DJANGO_PROJECT_NAME=project  # Project name
+    NGINX_CONF_PATH='./docker/nginx.dev.conf'  # Path to the nginx configuration file,
                                           # leave as is for the development environment
     ```
 
