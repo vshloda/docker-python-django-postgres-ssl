@@ -123,3 +123,32 @@
   ```
   docker compose run --rm web python manage.py collectstatic
   ```
+
+#### 7. If you have a domain for your site and want a free SSL certificate for HTTPS
+
+- Uncomment the service in the docker-compose.yml file:
+
+  ```
+  certbot:
+      image: certbot/certbot    
+      volumes:
+          - ./docker/certbot/www/:/var/www/certbot/:rw
+          - ./docker/certbot/conf/:/etc/letsencrypt/:rw
+  ```
+- Rebuild and restart the Docker containers using the command:
+
+  ```
+  docker compose up -d --build
+  ```
+- Then run the following command, replacing example.com with your domain:
+
+  ```
+  docker compose run --rm certbot certonly --webroot --webroot-path=/var/www/certbot -d example.com
+  ```
+
+- After this, you need to configure Nginx for HTTPS. To do this, change the value of NGINX_CONF_PATH in the .env file, replacing in file /docker/nginx.prod.conf localhost with your domain:
+
+  ```
+  NGINX_CONF_PATH='./docker/nginx.prod.conf'
+  ```
+
