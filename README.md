@@ -135,6 +135,13 @@
           - ./docker/certbot/www/:/var/www/certbot/:rw
           - ./docker/certbot/conf/:/etc/letsencrypt/:rw
   ```
+
+- Uncomment volumes in nginx service in the docker-compose.yml file:
+
+  ```
+  - ./docker/certbot/www:/var/www/certbot:ro
+  - ./docker/certbot/conf:/etc/letsencrypt
+  ```
 - Rebuild and restart the Docker containers using the command:
 
   ```
