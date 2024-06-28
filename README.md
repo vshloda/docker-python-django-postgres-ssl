@@ -93,6 +93,8 @@
 
 #### 5. Run Migrations
 
+- Run this command
+  
   ```
   docker compose run --rm web python manage.py migrate
   ```
