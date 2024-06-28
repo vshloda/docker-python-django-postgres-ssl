@@ -20,8 +20,8 @@ services:
       - ${NGINX_CONF_PATH}:/etc/nginx/conf.d/default.conf
       - ./src/static:/static:delegated
       - ./src/media:/media:delegated
-      - ./docker/certbot/www:/var/www/certbot:ro
-      - ./docker/certbot/conf:/etc/letsencrypt
+      # - ./docker/certbot/www:/var/www/certbot:ro
+      # - ./docker/certbot/conf:/etc/letsencrypt
     ports:
       - "${DOCKER_HTTP_PORT}:80"
       - "${DOCKER_HTTPS_PORT}:443"
