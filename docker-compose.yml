@@ -38,7 +38,7 @@ services:
     environment:
       - POSTGRES_DB=${DB_DATABASE}
       - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_DATABASE}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
 
   adminer:
     image: adminer
