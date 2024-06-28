@@ -6,6 +6,8 @@
 - `docker` - Folder for Docker configuration files
 - `src` - Folder where the project code will be stored
 - `.env` - Configuration values for the project
+- `docker-compose.yml` - Docker compose configuration file
+- `requirements.txt` - a list of packages or libraries needed to work on a project
 
 ### Step-by-Step Guide
 
