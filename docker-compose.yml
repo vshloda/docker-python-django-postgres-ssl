@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: ./docker/python.Dockerfile
-    command: gunicorn project.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn ${DJANGO_PROJECT_NAME}.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./src:/app:delegated
     expose:
@@ -46,6 +46,11 @@ services:
     ports:
       - 8081:8080
 
-      
+  # certbot:
+  #   image: certbot/certbot    
+  #   volumes:
+  #     - ./docker/certbot/www/:/var/www/certbot/:rw
+  #     - ./docker/certbot/conf/:/etc/letsencrypt/:rw  
+
 volumes:
   pgdata:

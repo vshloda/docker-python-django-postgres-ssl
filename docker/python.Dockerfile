@@ -26,9 +26,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Expose port 8000 for Gunicorn
 EXPOSE 8000
 
-COPY ./docker/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# COPY ./docker/entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
 
-# Виконуємо скрипт entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
 
