@@ -12,5 +12,36 @@
 #### 1. Environment Setup
 
 - Create a `.env` file based on `.env.example` using the following command:
+
   ```sh
   cp .env.example .env
+
+ •	Enter or leave the default port values for your project:
+
+    ```sh
+    DOCKER_HTTP_PORT=80
+    NGINX_CONF_PATH=./docker/nginx/conf.d  # Path to the nginx configuration file, leave as is for the development environment
+
+ •	Fill in the database values:
+
+    ```sh
+    DB_USER
+    DB_PASSWORD
+    DB_DATABASE
+    DB_HOST
+    DB_PORT
+
+#### 2. Build the Project Using Docker Compose
+
+    ```sh
+    docker compose build
+
+#### 3. Create a Django Project
+
+  -  Create a Django project where the project name is project (if you change the project name, update the DJANGO_PROJECT_NAME in the .env file):
+
+    ```sh
+  docker compose run --rm web django-admin startproject project .
+
+
+  • After running this command, the project code should appear in the src folder.
